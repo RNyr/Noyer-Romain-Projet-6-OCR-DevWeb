@@ -21,7 +21,7 @@ app.use((req, res, next) => {
 
 //----- ROUTES -----//
 
-const Sauce = require("./models/sauce");
+const Sauce = require("./models/sauces");
 
 app.post("/api/sauces", (req, res, next) => {
   delete req.body._id;
@@ -46,7 +46,7 @@ app.delete("/api/sauces/:id", (req, res, next) => {
     .catch((error) => res.status(400).json({ error }));
 });
 
-app.get("/api/sauce/:id", (req, res, next) => {
+app.get("/api/sauces/:id", (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((thing) => res.status(200).json(thing))
     .catch((error) => res.status(404).json({ error }));
