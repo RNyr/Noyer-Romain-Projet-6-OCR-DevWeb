@@ -42,3 +42,5 @@ app.use("/api/auth", userRoutes);
 const path = require("path");
 
 app.use("/images", express.static(path.join(__dirname, "images")));
+
+module.exports = app;

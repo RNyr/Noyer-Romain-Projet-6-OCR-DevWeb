@@ -23,7 +23,7 @@ exports.createSauce = (req, res, next) => {
     });
 };
 
-exports.getOneTSauce = (req, res, next) => {
+exports.getOneSauce = (req, res, next) => {
   Sauce.findOne({
     _id: req.params.id,
   })
