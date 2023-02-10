@@ -24,10 +24,13 @@ app.use((req, res, next) => {
 const mongoose = require("mongoose");
 
 mongoose
-  .connect("mongodb+srv://Romain:derek1995@cluster0.d10dglr.mongodb.net/test", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://<Account>:<password>@cluster0.d10dglr.mongodb.net/test",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => console.log("Connexion à MongoDB réussie !"))
   .catch(() => console.log("Connexion à MongoDB échouée !"));
 
