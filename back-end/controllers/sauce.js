@@ -151,11 +151,9 @@ exports.likeSauce = (req, res, next) => {
             }
           )
             .then(() =>
-              res
-                .status(200)
-                .json({
-                  message: "Vous aimerez peut-être cette sauce à nouveau",
-                })
+              res.status(200).json({
+                message: "Vous aimerez peut-être cette sauce à nouveau",
+              })
             )
             .catch((error) => res.status(400).json({ error }));
         }

@@ -25,7 +25,7 @@ const mongoose = require("mongoose");
 
 mongoose
   .connect(
-    "mongodb+srv://<Account>:<password>@cluster0.d10dglr.mongodb.net/test",
+    `mongodb+srv://${ACCOUNT}:${PASSWORD}@cluster0.d10dglr.mongodb.net/test`,
     {
       useNewUrlParser: true,
       useUnifiedTopology: true,
