@@ -1,6 +1,8 @@
 const Sauce = require("../models/sauce");
 const fs = require("fs");
 
+//-------------------------------
+
 exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
@@ -23,6 +25,22 @@ exports.createSauce = (req, res, next) => {
     });
 };
 
+//-------------------------------
+
+exports.getAllSauce = (req, res, next) => {
+  Sauce.find()
+    .then((sauces) => {
+      res.status(200).json(sauces);
+    })
+    .catch((error) => {
+      res.status(400).json({
+        error: error,
+      });
+    });
+};
+
+//-------------------------------
+
 exports.getOneSauce = (req, res, next) => {
   Sauce.findOne({
     _id: req.params.id,
@@ -36,6 +54,8 @@ exports.getOneSauce = (req, res, next) => {
       });
     });
 };
+
+//-------------------------------
 
 exports.modifySauce = (req, res, next) => {
   const sauceObject = req.file
@@ -66,6 +86,8 @@ exports.modifySauce = (req, res, next) => {
     });
 };
 
+//------------------------------------
+
 exports.deleteSauce = (req, res, next) => {
   Sauce.findOne({ _id: req.params.id })
     .then((sauce) => {
@@ -87,17 +109,7 @@ exports.deleteSauce = (req, res, next) => {
     });
 };
 
-exports.getAllSauce = (req, res, next) => {
-  Sauce.find()
-    .then((sauces) => {
-      res.status(200).json(sauces);
-    })
-    .catch((error) => {
-      res.status(400).json({
-        error: error,
-      });
-    });
-};
+//-----------------------------------------
 
 exports.likeSauce = (req, res, next) => {
   const like = req.body.like;
